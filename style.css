@@ -138,7 +138,6 @@ header {
 }
 
 .banner2 img {
-
   width: 100%;
 }
 
@@ -155,7 +154,6 @@ header {
   flex-wrap: wrap;
   padding: 0px 10px;
   margin-bottom: 14px;
-  
 }
 
 .cetegory .cetegoryItem {
@@ -163,7 +161,7 @@ header {
   border-radius: 5px;
   text-align: center;
   flex-basis: 9%;
-    cursor: pointer;
+  cursor: pointer;
 
   margin: 1%;
 }
@@ -273,12 +271,7 @@ header {
   color: #1f1f1f;
 }
 
-.product
-  .product-page
-  .product-detials
-  .addbtn-price
-  .product-price
-  .discountPrice {
+.product-detials .addbtn-price .product-price .discountPrice {
   font-size: 12px;
 }
 
@@ -290,14 +283,18 @@ header {
   border-radius: 7px;
   font-weight: 600;
   outline: none;
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.product .product-page .product-detials .addbtn-price .container-cart {
+  display : none;
 }
 
 .product .product-page .product-detials .addbtn-price .addToCartBtn {
-  width: 55px;
-  height: 37px;
+  width: 65px;
+  height: 35px;
   color: #f7fff9;
-  border: none ;
+  border: none;
   background-color: #318616;
   border-radius: 7px;
   font-weight: 600;
@@ -305,19 +302,18 @@ header {
   align-items: center;
   justify-content: space-evenly;
   display: flex;
-  font-size:14px;
+  font-size: 14px;
 }
 
-.product .product-page .product-detials .addbtn-price .addToCartBtn button{
+.product .product-page .product-detials .addbtn-price .addToCartBtn button {
   border: none;
   background-color: transparent;
   color: #f7fff9;
-  font-size:17px;
-  font-weight: 900;
+  font-size: 17px;
+  font-weight: 700;
   outline: none;
   cursor: pointer;
 }
-  
 
 /* Search Bar Animation  */
 

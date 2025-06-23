@@ -31,50 +31,98 @@ function animateSerchBar() {
   if (count == placeholderNames.length - 1) count = 0;
 }
 
-setInterval(animateSerchBar, 2000); // run after 2s 
+setInterval(animateSerchBar, 2000); // run after 2s
 
 // Fetch Data and Render in Html
 import { products, categories } from "./category/seedData.js";
 
 const cetegoryHTML = document.querySelector(".category-template");
-const cetegory = document.querySelector(".cetegory")
+const cetegory = document.querySelector(".cetegory");
 
 // Render Categories
-categories.forEach(data => {
+categories.forEach((data) => {
   // Clone the template
   const clone = document.importNode(cetegoryHTML.content, true);
 
-  // Fill Data on Element 
-  clone.querySelector('img').src = data.image
-  clone.querySelector('.category-name').textContent = data.name;
+  // Fill Data on Element
+  clone.querySelector("img").src = data.image;
+  clone.querySelector(".category-name").textContent = data.name;
 
   // Append to the Cetegory
   cetegory.appendChild(clone);
 });
 
-// Render Producst 
+// Render Producst
 
 const productHTML = document.querySelector(".product-template");
-const productPage = document.querySelector(".product-page")
+const productPage = document.querySelector(".product-page");
 
 products.forEach((data) => {
   // Clone product template
-  const clone = document.importNode(productHTML.content , true);
+  const clone = document.importNode(productHTML.content, true);
 
   // fill Data On product Elemenr
-  const {image,name,price,discountPrice,quantity} = data;
+  let { image, name, price, discountPrice, quantity, id, count } = data;
 
   clone.querySelector("img").src = image;
   clone.querySelector(".product-name").textContent = name;
   clone.querySelector(".quantity").textContent = quantity;
   clone.querySelector(".product-price1").textContent = `₹${price}`;
-  clone.querySelector('del').innerText = `₹${discountPrice}`;
-  
+  clone.querySelector("del").innerText = `₹${discountPrice}`;
+  clone.querySelector(".normalBtn").addEventListener("click", () => {
+    let productData = {
+      id,
+      name
+    };
+    // Check Existing Product From localStorage
+    const existing = JSON.parse(localStorage.getItem("products")) || [];
+    const found = existing.find((data)=>  data.id == id )
 
-  // Append To the Product 
-  productPage.appendChild(clone)
-})
+    console.log(existing)
+    console.log(found )
+    if (found) return ;
+
+    existing.push(productData);
+    // set In Localstorage
+    localStorage.setItem("products", JSON.stringify(existing));
+  });
+
+  // Append To the Product
+  productPage.appendChild(clone);
+});
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // increment.addEventListener("click", (e) => {
+  //   count++;
+  //   value.textContent = count;
+  // });
+  // decrement.addEventListener("click", (e) => {
+  //   --count;
+  //   if (!count) {
+  //     containerCart.style.display = "none";
+  //     normalBtn.style.display = "inline";
+  //     count = 1;
+  //     return;
+  //   }
+  //   value.textContent = count;
+  //   console.log(count);
+  // });
