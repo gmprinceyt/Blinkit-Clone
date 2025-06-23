@@ -55,14 +55,15 @@
   }
 
   .right button {
-    position: fixed;
+    /* position: fixed;
     bottom: 12px;
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 20px);
     font-size: 12px;
     padding: 15px 10px;
-    box-shadow:  0 0 5px 0px rgba(0, 0, 0, 0.3); 
+    box-shadow:  0 0 5px 0px rgba(0, 0, 0, 0.3);  */
+    display: none;
   }
 
   .banner2 .BannerItems {

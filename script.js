@@ -67,7 +67,7 @@ products.forEach((data) => {
   clone.querySelector("img").src = image;
   clone.querySelector(".product-name").textContent = name;
   clone.querySelector(".quantity").textContent = quantity;
-  clone.querySelector(".product-price").textContent = `₹${price}`;
+  clone.querySelector(".product-price1").textContent = `₹${price}`;
   clone.querySelector('del').innerText = `₹${discountPrice}`;
   
 
