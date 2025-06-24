@@ -34,7 +34,7 @@ function animateSerchBar() {
 setInterval(animateSerchBar, 2000); // run after 2s
 
 // Fetch Data and Render in Html
-import { products, categories } from "./category/seedData.js";
+import { products, categories } from "../public/seedData.js";
 
 const cetegoryHTML = document.querySelector(".category-template");
 const cetegory = document.querySelector(".cetegory");
