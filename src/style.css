@@ -102,11 +102,11 @@ header {
 
 .right a {
   text-decoration: none;
-  font-size: 30px;
+  font-size: 30px; 
   color: #000;
 }
 
-.right button {
+.right .button {
   padding: 16px 28px;
   background-color: #0c831f;
   border: none;
@@ -295,6 +295,11 @@ header {
   outline: none;
   cursor: pointer;
 }
+
+.product .product-page .product-detials .addbtn-price .normalBtn:hover {
+  transform: scale(-3px)
+}
+
 
 .product .product-page .product-detials .addbtn-price .container-cart {
   display: none;

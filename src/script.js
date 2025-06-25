@@ -1,4 +1,6 @@
-// Search animation
+/**========================================================================
+ *                           Search Animation
+ *========================================================================**/
 const search = document.querySelector("#search");
 
 let placeholderNames = [
@@ -33,96 +35,94 @@ function animateSerchBar() {
 
 setInterval(animateSerchBar, 2000); // run after 2s
 
-// Fetch Data and Render in Html
-import { products, categories } from "../public/seedData.js";
+/*============================ END OF Aniamation  ============================*/
 
-const cetegoryHTML = document.querySelector(".category-template");
+/**========================================================================
+ *                           Render Category In Page
+ *========================================================================**/
+
+import { categories } from "../public/seedData.js";
+
+const categoryTemplate = document.querySelector(".category-template");
 const cetegory = document.querySelector(".cetegory");
 
 // Render Categories
 categories.forEach((data) => {
-  // Clone the template
-  const clone = document.importNode(cetegoryHTML.content, true);
-
-  // Fill Data on Element
+  // Clone Template Data Times
+  const clone = document.importNode(categoryTemplate.content, true);
   clone.querySelector("img").src = data.image;
   clone.querySelector(".category-name").textContent = data.name;
-
-  // Append to the Cetegory
   cetegory.appendChild(clone);
 });
 
-// Render Producst
+/*============================ END OF render Category ============================*/
 
-const productHTML = document.querySelector(".product-template");
+/**========================================================================
+ *                           Render Products
+ *========================================================================**/
+
+import { products } from "../public/seedData.js";
+const productTemplate = document.querySelector(".product-template");
 const productPage = document.querySelector(".product-page");
 
 products.forEach((data) => {
+  let { image, name, price, discountPrice, quantity, id } = data;
   // Clone product template
-  const clone = document.importNode(productHTML.content, true);
-
-  // fill Data On product Elemenr
-  let { image, name, price, discountPrice, quantity, id, count } = data;
-
+  const clone = document.importNode(productTemplate.content, true);
   clone.querySelector("img").src = image;
   clone.querySelector(".product-name").textContent = name;
   clone.querySelector(".quantity").textContent = quantity;
   clone.querySelector(".product-price1").textContent = `₹${price}`;
   clone.querySelector("del").innerText = `₹${discountPrice}`;
+
+  // Add To Cart
   clone.querySelector(".normalBtn").addEventListener("click", () => {
     let productData = {
       id,
-      name
+      price,
+      name,
     };
     // Check Existing Product From localStorage
     const existing = JSON.parse(localStorage.getItem("products")) || [];
-    const found = existing.find((data)=>  data.id == id )
-
-    console.log(existing)
-    console.log(found )
-    if (found) return ;
-
+    const found = existing.find((data) => data.id == id);
+    if (found) return;
     existing.push(productData);
     // set In Localstorage
     localStorage.setItem("products", JSON.stringify(existing));
+    showAddToCartButton();
+    // addToCart();
   });
-
-  // Append To the Product
   productPage.appendChild(clone);
 });
 
+/**========================================================================
+ *                      Show Add To Cart Button
+ *========================================================================**/
+
+const cartButton = document.querySelector(".right .button");
+const countProducts = document.querySelector(".count");
+const productAmount = document.querySelector(".amount");
+
+document.addEventListener('DOMContentLoaded', showAddToCartButton)
+
+function showAddToCartButton() {
+  
+  const localProductData = JSON.parse(localStorage.getItem('products'));
+  
+  let amount = 0;
+  if (localProductData) {
+    //get total amount of products
+    localProductData.forEach((data) => {
+      amount = amount + data.price;
+    })
+    cartButton.style.bottom = "12px";
+    countProducts.textContent = localProductData.length; 
+    productAmount.textContent = amount;
+  }
+};
+
+/*============================ END OF Show Add To Cart Button  ============================*/
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // increment.addEventListener("click", (e) => {
-  //   count++;
-  //   value.textContent = count;
-  // });
-  // decrement.addEventListener("click", (e) => {
-  //   --count;
-  //   if (!count) {
-  //     containerCart.style.display = "none";
-  //     normalBtn.style.display = "inline";
-  //     count = 1;
-  //     return;
-  //   }
-  //   value.textContent = count;
-  //   console.log(count);
-  // });
+/*============================ Start Checkout Cart section ============================*/
