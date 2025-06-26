@@ -357,3 +357,19 @@ header {
     transform: translateY(0);
   }
 }
+
+
+/* cart Products */
+
+.product-cart {
+  display: flex;
+}
+
+.product-cart .product-img  {
+  width: 100px;
+  height: 100px;
+}
+
+.product-cart .product-img img {
+  width: 100%;
+}

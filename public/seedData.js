@@ -126,16 +126,6 @@ export const categories = [
       category: "Milk, Curd & Paneer",
     },
     {
-      name: "Amul Blend Diced Cheese",
-      id: 1,
-      image:"https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/app/images/products/sliding_image/439697a.jpg?ts=1688471557",
-      price: 125,
-      discountPrice: 125,
-      quantity: "200 g",
-      count: 1,
-      category: "Milk, Curd & Paneer",
-    },
-    {
       name: "BranO Plus Brown Bread",
       id: 8,
       image:"https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/app/images/products/sliding_image/438253a.jpg?ts=1687615978",
@@ -164,6 +154,16 @@ export const categories = [
       quantity: "48 g",
       count: 1,
       category: "Munchies",
+    },
+        {
+      name: "Amul Blend Diced Cheese",
+      id: 11,
+      image:"https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/app/images/products/sliding_image/439697a.jpg?ts=1688471557",
+      price: 125,
+      discountPrice: 125,
+      quantity: "200 g",
+      count: 1,
+      category: "Milk, Curd & Paneer",
     },
   ];
   
